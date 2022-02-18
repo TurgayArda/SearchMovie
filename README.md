@@ -1,4 +1,4 @@
 # SearchMovie
 #MVVM
 
-![Alt Text](https://media.giphy.com/media/ZsAsQyMQYDpZ8JWYVG/giphy.gif)
+![Alt Text](https://media.giphy.com/media/j2MXhbsOabKJTgPfE6/giphy.gif)
