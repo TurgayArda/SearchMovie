@@ -15,11 +15,12 @@ class MovieListVC: UIViewController {
     private var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     private var searchBar = UISearchController()
     private var  tableView = UITableView()
-    var provider = MovieListProvider()
-    var viewModel: MovieViewModelProtocol?
     private var isSearch = false
     private var errorMessage:String!
-    private let placeHolder = "Search movie name"
+    
+    var provider = MovieListProvider()
+    var viewModel: MovieViewModelProtocol?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class MovieListVC: UIViewController {
         indicator.color = .red
         tableView.rowHeight = 200
         searchBar.searchBar.showsCancelButton = true
-        searchBar.searchBar.placeholder = placeHolder
+        searchBar.searchBar.placeholder = MovieList.placeHolder.rawValue
     }
 }
 
@@ -70,8 +71,8 @@ extension MovieListVC: MovieListViewModelOutPut {
                 print(error)
                 errorMessage = error
             if isSearch {
-                let errorAlert = UIAlertController(title: MovieListError.alertTitle, message: self.errorMessage, preferredStyle: .alert)
-                let errorAction = UIAlertAction(title: MovieListError.actionTitle, style: .cancel)
+                let errorAlert = UIAlertController(title: MovieList.alertTitle.rawValue, message: self.errorMessage, preferredStyle: .alert)
+                let errorAction = UIAlertAction(title: MovieList.actionTitle.rawValue, style: .cancel)
                 errorAlert.addAction(errorAction)
                 self.present(errorAlert, animated: true)
             }

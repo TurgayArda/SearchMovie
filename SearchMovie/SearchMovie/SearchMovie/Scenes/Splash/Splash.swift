@@ -19,7 +19,6 @@ class SplashVC: UIViewController {
 
     private var nameLabel = UILabel()
     private var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    let name = "Turgay Arda Sisli"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +32,8 @@ class SplashVC: UIViewController {
             let viewController = MovieListBuilder.make()
             self.show(viewController, sender: nil)
             }else{
-                let errorAlert = UIAlertController(title: SplashErrorAlert.alertTitle, message: SplashErrorAlert.alertMessage, preferredStyle: .alert)
-                let errorAction = UIAlertAction(title: SplashErrorAlert.actionTitle, style: .cancel)
+                let errorAlert = UIAlertController(title: Splash.alertTitle.rawValue, message: Splash.alertMessage.rawValue, preferredStyle: .alert)
+                let errorAction = UIAlertAction(title: Splash.actionTitle.rawValue, style: .cancel)
                 errorAlert.addAction(errorAction)
                 self.present(errorAlert, animated: true)
             }
@@ -47,7 +46,7 @@ class SplashVC: UIViewController {
         view.backgroundColor = .white
         makeLabel()
         makeIndicator()
-        nameLabel.text = name
+        nameLabel.text = Splash.name.rawValue
         nameLabel.font = .boldSystemFont(ofSize: 20)
         indicator.color = .red
     }

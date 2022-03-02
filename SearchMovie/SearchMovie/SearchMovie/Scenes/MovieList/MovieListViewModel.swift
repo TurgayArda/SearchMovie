@@ -14,16 +14,11 @@ final class MovieViewModel {
     init(service: ISearchMovieProtocol) {
         self.service = service
     }
-    
-    enum Network: String{
-        case url = "http://www.omdbapi.com/?apikey=f0ac39d3&s="
-        case network = "&type=movie"
-    }
 }
 
 extension MovieViewModel: MovieViewModelProtocol {
     func load(path: String) {
-        service?.fetchAllData(path: Network.url.rawValue+path+Network.network.rawValue,
+        service?.fetchAllData(path: Pathurl.baseUrl.rawValue+path+Pathurl.networkUrl.rawValue,
                               success: { [delegate] data in
             delegate?.handleOutPut(.showMovieList(data))
         }, fail: { [delegate] error in

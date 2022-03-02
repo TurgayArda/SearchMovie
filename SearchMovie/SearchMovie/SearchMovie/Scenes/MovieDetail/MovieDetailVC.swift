@@ -15,6 +15,7 @@ class MovieDetailVC: UIViewController {
     private var titleLabel = UILabel()
     private var movieImage = UIImageView()
     private var yearLabel = UILabel()
+    
     var viewModel: MovieDetailViewModel?
    
     override func viewDidLoad() {
